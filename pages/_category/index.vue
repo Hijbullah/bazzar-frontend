@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto py-24">
+    <div class="container mx-auto px-4 py-8">
         <div v-if="products.length > 0" class=" grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-12">
             <div v-for="product in products" :key="product.id">
                 <TheProduct :product="product" />

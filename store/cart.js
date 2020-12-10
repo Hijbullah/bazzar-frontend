@@ -1,5 +1,3 @@
-import queryString from 'query-string'
-
 export const state = () => ({
     products: [],
     shipping: 0,
@@ -27,6 +25,9 @@ export const getters = {
 }
 
 export const mutations = {
+    INIT_CART(state) {
+        state.products = JSON.parse(localStorage.getItem('cart')) ?? [];
+    },
     SET_CART_CONTENT(state) {
         state.subTotal = state.products.reduce((sum, item) => {
             return  sum + item.price * item.quantity;
@@ -36,21 +37,9 @@ export const mutations = {
         state.total = state.subTotal - state.shipping;
     },
 
-    // SET_CART_PRODUCTS (state, products) {
-    //     state.products = products
-    // },
-
-    // SET_TOTAL_QUANTITY(state, quantity) {
-    //     state.totalQuantity = quantity;
-    // },
-
-    // SET_SUBTOTAL (state, subtotal) {
-    //     state.subtotal = subtotal
-    // },
-
-    // SET_TOTAL (state, total) {
-    //     state.total = total
-    // },
+    ADD_CART_TO_LOCAL_STORAGE(state) {
+        localStorage.setItem('cart', JSON.stringify(state.products));
+    },
 
     ADD_PRODUCT_TO_CART(state, product){
         const existingProduct = state.products.find(item => item.id == product.id);
@@ -85,40 +74,30 @@ export const mutations = {
 }
 
 export const actions = {
-    // async getCart ({ commit, state }) {
-    //     let query = {}
-
-    //     if (state.shipping) {
-    //     query.shipping_method_id = state.shipping.id
-    //     }
-
-    //     let response = await this.$axios.$get(`cart?${queryString.stringify(query)}`)
-
-    //     commit('SET_PRODUCTS', response.data.products)
-    //     commit('SET_EMPTY', response.meta.empty)
-    //     commit('SET_SUBTOTAL', response.meta.subtotal)
-    //     commit('SET_TOTAL', response.meta.total)
-    //     commit('SET_CHANGED', response.meta.changed)
-
-    //     return response
-    // },
-
+    initCart({ commit }) {
+        commit('cart/INIT_CART');
+        commit('cart/SET_CART_CONTENT');
+    },
     addProductToCart({ commit }, product) {
         commit('ADD_PRODUCT_TO_CART', product);
         commit('SET_CART_CONTENT');
+        commit('ADD_CART_TO_LOCAL_STORAGE');
         // commit('SHOW_CART_DETAILS');
     },
     increaseItemQty({ commit } ,id) {
         commit('INCREASE_ITEM_QTY', id);
         commit('SET_CART_CONTENT');
+        commit('ADD_CART_TO_LOCAL_STORAGE');
     },
     decreaseItemQty({ commit } ,id) {
         commit('DECREASE_ITEM_QTY', id);
         commit('SET_CART_CONTENT');
+        commit('ADD_CART_TO_LOCAL_STORAGE');
     },
     removeItem({ commit }, id) {
         commit('REMOVE_ITEM', id);
         commit('SET_CART_CONTENT');
+        commit('ADD_CART_TO_LOCAL_STORAGE');
     }
 
     // async destroy ({ dispatch }, productId) {
