@@ -78,7 +78,8 @@ export const actions = {
         commit('cart/INIT_CART');
         commit('cart/SET_CART_CONTENT');
     },
-    addProductToCart({ commit }, product) {
+
+    async addProductToCart({ commit }, product) {
         commit('ADD_PRODUCT_TO_CART', product);
         commit('SET_CART_CONTENT');
         commit('ADD_CART_TO_LOCAL_STORAGE');

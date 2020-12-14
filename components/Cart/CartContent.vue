@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="mt-5 text-center">
-            <button>Checkout</button>
+            <NuxtLink to="/checkout">Checkout</NuxtLink>
         </div>
     </div>
 </template>
