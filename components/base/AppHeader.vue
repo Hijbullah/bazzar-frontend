@@ -26,10 +26,15 @@
                     <span class="text-gray-800">|</span>
                     <button class="text-red-600 font-semibold focus:outline-none">BN</button>
                 </div>
-                <button class="hidden md:block w-32 lg:w-48 self-stretch bg-red-600 hover:bg-red-700 text-white font-bold focus:outline-none">Sign in</button>
+               
+
+                <button @click.prevent="logout" v-if="login" class="hidden md:block w-32 lg:w-48 self-stretch bg-red-600 hover:bg-red-700 text-white font-bold focus:outline-none">Logout</button>
+                <button @click="goToLogin" v-else class="hidden md:block w-32 lg:w-48 self-stretch bg-red-600 hover:bg-red-700 text-white font-bold focus:outline-none">Sign in</button>
+                
                 <button class="md:hidden px-4 self-stretch bg-red-600 hover:bg-red-700 text-white font-bold focus:outline-none">
                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
                 </button>
+
             </div>
         </div>
     </header>
@@ -37,7 +42,22 @@
 
 <script>
 export default {
-
+    computed: {
+        login() {
+            return this.$auth.loggedIn;
+        },
+        user() {
+            return this.$auth.user;
+        }
+    },
+    methods: {
+        async logout() {
+            await this.$auth.logout();
+        },
+        goToLogin() {
+            this.$router.push('/auth/login');
+        }
+    }
 }
 </script>
 

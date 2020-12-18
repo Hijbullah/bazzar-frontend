@@ -1,7 +1,7 @@
 <template>
     <div>
         <section>
-            <div class="w-full bg-center bg-no-repeat bg-cover" style="height: 20rem; background-image: url('https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1436/Default/stores/chaldal/components/landingPage2/LandingPage/images/landingBannerTop.jpg')">
+            <div class="w-full bg-center bg-no-repeat bg-cover" style="height: 20rem; background-image: url('https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1609/Default/stores/chaldal/components/landingPage2/LandingPage/images/landingBannerTop.jpg')">
                 <div class="flex flex-col justify-center items-center h-full">
                     <h2 class="text-xl md:text-4xl text-gray-900 font-bold">Groceries delivered in 1 hour</h2>
                     <p class="text-sm md:text-xl text-gray-700">Everything you need! We are Here!</p>

@@ -1,6 +1,6 @@
 export const state = () => ({
     products: [],
-    shipping: 0,
+    delivery: 0,
     totalQuantity: 0,
     subTotal: 0,
     total: 0,
@@ -12,7 +12,7 @@ export const getters = {
         return {
             products: state.products,
             subTotal: state.subTotal,
-            shipping: state.shipping,
+            delivery: state.delivery,
             totalQuantity: state.totalQuantity,
             total: state.total
         }
@@ -21,7 +21,7 @@ export const getters = {
     cartTotalQuantity: state => state.totalQuantity,
     getTotal: state => state.total,
     subtotal: state => state.subTotal,
-    showCartDetails: state => state.showCartDetail,
+    showCartDetails: state => state.showCartDetail
 }
 
 export const mutations = {
@@ -34,7 +34,7 @@ export const mutations = {
         }, 0);
 
         state.totalQuantity = state.products.length;
-        state.total = state.subTotal - state.shipping;
+        state.total = state.subTotal - state.delivery;
     },
 
     ADD_CART_TO_LOCAL_STORAGE(state) {
@@ -123,7 +123,7 @@ export const actions = {
     //     dispatch('getCart')
     // },
 
-    // async setShipping ({ commit }, shipping) {
-    //     commit('SET_SHIPPING', shipping)
+    // async setdelivery ({ commit }, delivery) {
+    //     commit('SET_delivery', delivery)
     // }
 }

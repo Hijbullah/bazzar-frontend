@@ -1,16 +1,16 @@
 export const state = () => ({
-    user: {
-        name: '',
-        mobile: '',
-        addresses: [
-            // {
-            //     name: '',
-            //     mobile: '',
-            //     area: '',
-            //     address: ''
-            // }
-        ]  
-    },
+    // user: {
+    //     name: '',
+    //     mobile: '',
+    //     addresses: [
+    //         // {
+    //         //     name: '',
+    //         //     mobile: '',
+    //         //     area: '',
+    //         //     address: ''
+    //         // }
+    //     ]  
+    // },
     categories: [],
     childCategories: []
 })

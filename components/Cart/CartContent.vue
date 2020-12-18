@@ -24,8 +24,8 @@
                 </div>
                 <hr>
                 <div class="flex justify-between items-center">
-                    <div>Shipping:</div>
-                    <div>{{ cartContent.shipping }}</div>
+                    <div>Delivery:</div>
+                    <div>{{ cartContent.delivery }}</div>
                 </div>
                 <hr>
                 <div class="flex justify-between items-center">
