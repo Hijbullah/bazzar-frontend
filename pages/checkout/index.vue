@@ -107,10 +107,10 @@ export default {
                 const response = await this.$axios.post('/place-order/', {
                     user: this.$auth.user.id,
                     address: this.address,
-                    order: this.cartContent
+                    order: this.cartContent,
                 });
-                console.log(response);
                 this.errors = null;
+                this.$router.push(`/checkout/payment/${response.data}`);
             } catch (error) {
 
                 const errors = error.response.data.errors;

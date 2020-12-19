@@ -4,11 +4,9 @@
             <AppCheckoutHeader />
         </div>
         <div class="flex">
-                <main class="w-full">
-                    <Nuxt />
-                </main>
-
-           
+            <main class="w-full">
+                <Nuxt />
+            </main>
         </div>    
     </div>
 </template>

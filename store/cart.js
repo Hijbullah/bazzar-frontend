@@ -30,7 +30,7 @@ export const mutations = {
     },
     SET_CART_CONTENT(state) {
         state.subTotal = state.products.reduce((sum, item) => {
-            return  sum + item.price * item.quantity;
+            return parseFloat(sum + item.price * item.quantity).toFixed(2);
         }, 0);
 
         state.totalQuantity = state.products.length;

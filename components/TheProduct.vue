@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-sm">
         <div class="flex justify-center items-center w-full h-64 overflow-hidden">
-        <img class="object-cover object-center" :src="'http://127.0.0.1:8000/storage/' + product.images[0]" :alt="product.name">
+        <img class="object-cover object-center" :src="product.images" :alt="product.name">
         </div>
         <div class="h-16 overflow-hidden">
         <h3 class="text-center text-sm font-semibold hover:text-red-700">
