@@ -111,6 +111,7 @@ export default {
                     order: this.cartContent,
                 });
                 this.errors = null;
+                this.$store.dispatch('cart/clearCartContent');
                 this.$router.push(`/checkout/payment/${response.data}`);
             } catch (error) {
 

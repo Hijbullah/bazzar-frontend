@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-sm">
-        <div class="flex justify-center items-center w-full h-64 overflow-hidden">
-        <img class="object-cover object-center" :src="productImage" :alt="product.name">
+        <div class="flex justify-center items-center w-full h-48 overflow-hidden">
+            <img class="h-full w-full object-cover" :src="productImage" :alt="product.name">
         </div>
         <div class="h-16 overflow-hidden">
         <h3 class="text-center text-sm font-semibold hover:text-red-700">

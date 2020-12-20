@@ -1,7 +1,14 @@
 <template>
     <div class="min-h-screen flex py-10 container mx-auto">
         <div class="w-1/3">
-            <img class="w-64 object-cover" :src="product.images[0]" :alt="product.name">
+            <div>
+                <div class="flex justify-center">
+                    <img class="w-64 object-cover" :src="product.images[0]" :alt="product.name">
+                </div>
+                <div class="flex justify-center mt-8">
+                    <img class="w-12 h-12 object-cover" v-for="(image, index) in product.images" :key="index" :src="image" :alt="product.name">
+                </div>
+            </div>
         </div>
         <div class="w-2/3">
             <h2 class="text-2xl font-bold">{{ product.name }}</h2>

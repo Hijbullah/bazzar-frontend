@@ -64,6 +64,15 @@ export const mutations = {
         state.products.splice(state.products.findIndex(item => item.id == id), 1);
     },
 
+    CLEAR_CART_CONTENT(state) {
+        localStorage.removeItem('cart');
+        state.products = [];
+        state.delivery = 0;
+        state.totalQuantity = 0;
+        state.subTotal = 0;
+        state.total = 0;
+    },
+
    
     SHOW_CART_DETAILS(state) {
         state.showCartDetail = true;
@@ -99,7 +108,13 @@ export const actions = {
         commit('REMOVE_ITEM', id);
         commit('SET_CART_CONTENT');
         commit('ADD_CART_TO_LOCAL_STORAGE');
+    },
+    clearCartContent({ commit }) {
+        commit('CLEAR_CART_CONTENT');
+        commit('HIDE_CART_DETAILS');
     }
+
+
 
     // async destroy ({ dispatch }, productId) {
     //     let response = await this.$axios.$delete(`cart/${productId}`)
