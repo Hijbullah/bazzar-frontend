@@ -82,6 +82,7 @@
 export default {
     layout: 'checkout',
     middleware: 'auth',
+    
     data() {
         return {
             address: {

@@ -36,9 +36,9 @@
                             </div>
                         </div>
                         <div class="mt-2 pt-3 space-x-3 border-t-2">
-                            <button>Go to dashboard</button>
-                            <button>Return To Home</button>
-                            <button>Cancel Order</button>
+                            <NuxtLink to="/customer/profile">Go to dashboard</NuxtLink>
+                            <NuxtLink to="/">Return To Home</NuxtLink>
+                            <NuxtLink :to="`/customer/orders/${order.order_code}`">Cancel Order</NuxtLink>
                         </div>
                     </div>
                     

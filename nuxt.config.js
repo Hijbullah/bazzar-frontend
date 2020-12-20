@@ -11,7 +11,10 @@ export default {
 
   css: [],
 
-  plugins: [{ src: '~/plugins/nuxt-client-init.js', ssr: false }],
+  plugins: [
+    { src: '~/plugins/nuxt-client-init.js', ssr: false },
+    { src: '~/plugins/paginate.js' }
+  ],
 
   components: true,
 

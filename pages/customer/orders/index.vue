@@ -54,6 +54,8 @@
 
 <script>
 export default {
+    middleware: 'auth',
+    
     async asyncData({ $auth, $axios }) {
         const orders = await $axios.$get(`/get-order-summery/${$auth.user.id}`);
         // console.log(orders);

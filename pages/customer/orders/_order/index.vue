@@ -70,6 +70,8 @@
 
 <script>
 export default {
+    middleware: 'auth',
+    
     async asyncData({ params, $axios }) {
         const order = await $axios.$get(`/get-order-details/${params.order}`);
         return { order };
