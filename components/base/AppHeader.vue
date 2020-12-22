@@ -1,42 +1,30 @@
 <template>
     <header>
-        <div class="flex justify-between bg-yellow-300">
-            <div class="flex-1">
-                <div class="flex items-center">
-                    <div class="w-auto md:w-56 pl-3 flex">
-                        <button class="p-3 text-gray-800 hover:bg-red-600 hover:text-white focus:outline-none">
-                            <svg class="w-8 h-8 md:w-6 md:h-6 fill-current" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                        </button>
+       <div class="flex justify-between items-center px-8 py-4  bg-white shadow">
+            <h1 class="text-3xl text-teal-600 leading-none font-bold">
+                <NuxtLink to="/">Bazzar</NuxtLink>
+            </h1>
 
-                        <h1 class="hidden md:block text-gray-800 text-3xl font-semibold ml-3 mr-6"><nuxt-link to="/">eBazar</nuxt-link></h1>
-                    </div>
+           <div class="relative flex-1 ml-24 mr-12">
+               <input type="text" class="appearance-none w-full h-11 m-0 pl-6 pr-12 bg-gray-50 text-gray-500 border-2 border-gray-200 rounded-md focus:outline-none focus:ring-0 focus:border-teal-600" placeholder="Search anything...">
+                <span class="inline-block absolute top-2 right-4 ml-1 focus:outline-none">
+                    <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </span>
+           </div>
 
-                    <div class="flex-1 relative mr-3">
-                        <input type="text" class="w-full md:my-2 pl-2 pr-12 py-2 text-base text-gray-600 placeholder-gray-600 focus:outline-none" placeholder="Search anything...">
-                        <button class="h-10 w-12 inline-block absolute right-0 mt-1 px-2 focus:outline-none">
-                            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                        </button>
-                    </div>
-                </div>
-               
-            </div>
-            <div class="flex items-center">
-                <div class="pl-6 pr-8 hidden lg:block">
-                    <button class="text-gray-800 font-semibold focus:outline-none">EN</button>
-                    <span class="text-gray-800">|</span>
-                    <button class="text-red-600 font-semibold focus:outline-none">BN</button>
-                </div>
-               
-
-                <button @click.prevent="logout" v-if="login" class="hidden md:block w-32 lg:w-48 self-stretch bg-red-600 hover:bg-red-700 text-white font-bold focus:outline-none">Logout</button>
-                <button @click="goToLogin" v-else class="hidden md:block w-32 lg:w-48 self-stretch bg-red-600 hover:bg-red-700 text-white font-bold focus:outline-none">Sign in</button>
-                
-                <button class="md:hidden px-4 self-stretch bg-red-600 hover:bg-red-700 text-white font-bold focus:outline-none">
-                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
-                </button>
-
-            </div>
-        </div>
+           <div class="flex items-center space-x-8">
+               <a href="#" class="font-semibold hover:text-teal-600">Offer</a>
+               <a href="#" class="inline-flex items-center font-semibold hover:text-teal-600">
+                    <span class="mr-1">
+                        <svg class="w-4 h-4 stroke-current" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </span>
+                    Need Help
+                </a>
+               <button class="btn-primary px-3 py-2 text-sm uppercase tracking-widest">Login</button>
+           </div>
+       </div>
     </header>
 </template>
 

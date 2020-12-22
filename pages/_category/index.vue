@@ -1,9 +1,13 @@
 <template>
-    <div class="container mx-auto px-4 py-8">
-        <div v-if="products.length > 0" class="grid grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-3">
-            <div v-for="product in products" :key="product.id">
-                <TheProduct :product="product" />
-            </div>
+    <div class="w-full px-8 py-8 bg-gray-50">
+        <div class="grid grid-cols-4 gap-x-5 gap-y-5">
+            <TheProduct 
+                v-for="product in products" 
+                :key="product.id"
+                :product="product" 
+            />
+        </div>
+          
             <!-- <div v-if="this.page_count>1"> -->
                 <!-- <paginate
                     v-model="page"
@@ -20,10 +24,10 @@
                 </paginate> -->
             <!-- </div>  -->
             
-        </div>
+        <!-- </div>
         <div v-else>
             <p>No products found(s)</p>
-        </div>
+        </div> -->
 
         <div class="mt-8">
            
