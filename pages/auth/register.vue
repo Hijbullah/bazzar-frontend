@@ -1,35 +1,37 @@
 <template>
     <div class="bg-white rounded-lg shadow px-8 py-6">
-        <div v-if="message">
-            <p>{{ message }}</p>
-        </div>
-
-        <div class="flex flex-col justify-center items-center mb-10">
-            <h2 class="text-gray-700 text-lg font-bold uppercase tracking-widest">Welcome</h2>
-            <p class="mt-2 text-gray-500">Login with Email and Password</p>
+        <div class="flex flex-col justify-center items-center mb-6">
+            <h2 class="text-gray-700 text-lg font-bold uppercase tracking-widest">Sign Up</h2>
         </div>
        
         <form @submit.prevent="submit" method="POST">
-            <div class="mb-5">
-                <input aria-label="Email address" name="email" type="email" v-model="form.email" class="appearance-none w-full px-3 py-2 text-gray-700 border-0 rounded ring-2 ring-gray-300 ring-opacity-50 tracking-wider focus:outline-none focus:ring-teal-600 placeholder-gray-600 placeholder-opacity-90" placeholder="Email address" />
-                <div v-if="errors.email" class="text-red-500 text-sm mt-2">{{ errors.email[0] }}</div>
+            <div class="mb-4">
+                <input aria-label="Name" type="text" v-model="form.name" class="appearance-none w-full px-3 py-2 text-gray-700 border-0 rounded ring-2 ring-gray-300 ring-opacity-50 tracking-wider focus:outline-none focus:ring-teal-600 placeholder-gray-600 placeholder-opacity-90" placeholder="Name" />
+                <div v-if="errors.name" class="text-red-400 text-xs mb-4 mt-2">{{ errors.name[0] }}</div>
+            </div>
+            <div class="mb-4">
+                <input aria-label="Email address" type="email" v-model="form.email" class="appearance-none w-full px-3 py-2 text-gray-700 border-0 rounded ring-2 ring-gray-300 ring-opacity-50 tracking-wider focus:outline-none focus:ring-teal-600 placeholder-gray-600 placeholder-opacity-90" placeholder="Email address" />
+                <div v-if="errors.email" class="text-red-500 text-xs mt-2">{{ errors.email[0] }}</div>
             </div>
             
+            <div class="mb-4">
+                <input aria-label="Password" v-model="form.password" type="password" class="appearance-none w-full px-3 py-2 text-gray-700 border-0 rounded ring-2 ring-gray-300 ring-opacity-50 tracking-wider focus:outline-none focus:ring-teal-600 placeholder-gray-600 placeholder-opacity-90" placeholder="Password" />
+                <div v-if="errors.password" class="text-red-500 text-xs mt-2">{{ errors.password[0] }}</div>
+            </div>
             <div>
-                <input aria-label="Password" name="password"  v-model="form.password" type="password" class="appearance-none w-full px-3 py-2 text-gray-700 border-0 rounded ring-2 ring-gray-300 ring-opacity-50 tracking-wider focus:outline-none focus:ring-teal-600 placeholder-gray-600 placeholder-opacity-90" placeholder="Password" />
-                <div v-if="errors.password" class="text-red-500 text-sm mt-2">{{ errors.password[0] }}</div>
+                <input aria-label="Confirm Password" v-model="form.password_confirmation" type="password" class="appearance-none w-full px-3 py-2 text-gray-700 border-0 rounded ring-2 ring-gray-300 ring-opacity-50 tracking-wider focus:outline-none focus:ring-teal-600 placeholder-gray-600 placeholder-opacity-90" placeholder="Confirm Password" />
             </div>
           
-            <div class="my-6">
+            <div class="my-5">
                 <button type="submit" class="w-full btn-primary justify-center px-2 py-2 uppercase tracking-wider">
-                    Sign in
+                    Create New Account
                 </button>
             </div>
 
             <div class="text-gray-600 tracking-wide">
-                Don't have an account? 
-                <NuxtLink to="/auth/register" class="font-medium text-teal-600 hover:text-teal-500 focus:outline-none transition ease-in-out duration-150">
-                    Register
+                Already have an account? 
+                <NuxtLink to="/auth/login" class="font-medium text-teal-600 hover:text-teal-500 focus:outline-none transition ease-in-out duration-150">
+                    Login
                 </NuxtLink>
             </div>
             <div class="mt-5 flex items-center justify-between">
@@ -39,11 +41,6 @@
                     </svg>
                     Back To Home
                 </NuxtLink>
-          
-                <NuxtLink to="/auth/password/forget" class="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-teal-600 tracking-wide focus:outline-none transition ease-in-out duration-150">
-                    Forgot your password?
-                </NuxtLink>
-               
             </div>
         </form>
     </div>
