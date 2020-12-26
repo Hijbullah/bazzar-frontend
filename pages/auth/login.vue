@@ -1,54 +1,51 @@
 <template>
-    <div class="relative min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-6 z-50">
-             <div v-if="message">
-                <p>{{ message }}</p>
+    <div class="bg-white rounded-lg shadow px-8 py-6">
+        <div v-if="message">
+            <p>{{ message }}</p>
+        </div>
+
+        <div class="flex flex-col justify-center items-center mb-10">
+            <h2 class="text-gray-700 text-lg font-bold uppercase tracking-widest">Welcome</h2>
+            <p class="mt-2 text-gray-500">Login with Email and Password</p>
+        </div>
+       
+        <form @submit.prevent="submit" method="POST">
+            <div class="mb-5">
+                <input aria-label="Email address" name="email" type="email" v-model="form.email" class="appearance-none w-full px-3 py-2 text-gray-700 border-0 rounded ring-2 ring-gray-300 ring-opacity-50 tracking-wider focus:outline-none focus:ring-teal-600 placeholder-gray-600 placeholder-opacity-90" placeholder="Email address" />
+                <div v-if="errors.email" class="text-red-500 text-sm mt-2">{{ errors.email[0] }}</div>
             </div>
             
             <div>
-                <h2 class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900">
-                    Sign in
-                </h2>
+                <input aria-label="Password" name="password"  v-model="form.password" type="password" class="appearance-none w-full px-3 py-2 text-gray-700 border-0 rounded ring-2 ring-gray-300 ring-opacity-50 tracking-wider focus:outline-none focus:ring-teal-600 placeholder-gray-600 placeholder-opacity-90" placeholder="Password" />
+                <div v-if="errors.password" class="text-red-500 text-sm mt-2">{{ errors.password[0] }}</div>
             </div>
-            <form @submit.prevent="submit" class="mt-8" action="#" method="POST">
+          
+            <div class="my-6">
+                <button type="submit" class="w-full btn-primary justify-center px-2 py-2 uppercase tracking-wider">
+                    Sign in
+                </button>
+            </div>
 
-                <div>
-                    <div class="mb-3">
-                        <input aria-label="Email address" name="email" type="email" v-model="form.email" class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5" placeholder="Email address" />
-                        <div v-if="errors.email" class="text-red-400 text-xs mb-4 mt-2">{{ errors.email[0] }}</div>
-                    </div>
-                    <div>
-                        <input aria-label="Password" name="password"  v-model="form.password" type="password" class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5" placeholder="Password" />
-                        <div v-if="errors.password" class="text-red-400 text-xs mb-4 mt-2">{{ errors.password[0] }}</div>
-                    </div>
-                </div>
-
-                <div class="mt-6 flex items-center justify-between">
-                     <div class="text-sm leading-5">
-                        <NuxtLink to="/auth/register" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                            Or Register
-                        </NuxtLink>
-                    </div>
-
-                    <div class="text-sm leading-5">
-                        <NuxtLink to="/auth/password/forget" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                            Forgot your password?
-                        </NuxtLink>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                            <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400 transition ease-in-out duration-150" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                        Sign in
-                    </button>
-                </div>
-            </form>
-        </div>
+            <div class="text-gray-600 tracking-wide">
+                Don't have an account? 
+                <NuxtLink to="/auth/register" class="font-medium text-teal-600 hover:text-teal-500 focus:outline-none transition ease-in-out duration-150">
+                    Register
+                </NuxtLink>
+            </div>
+            <div class="mt-5 flex items-center justify-between">
+                <NuxtLink to="/" class="inline-flex items-center text-sm font-semibold text-teal-600 hover:text-teal-500 uppercase tracking-wide focus:outline-none transition ease-in-out duration-150">
+                    <svg class="w-4 h-4 inline-block mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Back To Home
+                </NuxtLink>
+          
+                <NuxtLink to="/auth/password/forget" class="inline-flex items-center text-sm font-semibold text-gray-700 hover:text-teal-600 tracking-wide focus:outline-none transition ease-in-out duration-150">
+                    Forgot your password?
+                </NuxtLink>
+               
+            </div>
+        </form>
     </div>
 </template>
 
@@ -56,7 +53,7 @@
 <script>
 
     export default {
-        // layout: 'auth',
+        layout: 'auth',
         middleware: 'auth',
 
         data() {

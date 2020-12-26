@@ -4,7 +4,7 @@ export const state = () => ({
     totalQuantity: 0,
     subTotal: 0,
     total: 0,
-    showCartDetail: false,
+    showCart: false,
 })
 
 export const getters = {
@@ -17,11 +17,14 @@ export const getters = {
             total: state.total
         }
     },
-    
+
+    getProductFromCart: (state) => (id) => {
+        return state.products.find(product => product.id === id)
+    },
     cartTotalQuantity: state => state.totalQuantity,
     getTotal: state => state.total,
     subtotal: state => state.subTotal,
-    showCartDetails: state => state.showCartDetail
+    showCart: state => state.showCart
 }
 
 export const mutations = {
@@ -30,7 +33,7 @@ export const mutations = {
     },
     SET_CART_CONTENT(state) {
         state.subTotal = state.products.reduce((sum, item) => {
-            return parseFloat(sum + item.price * item.quantity).toFixed(2);
+            return sum + item.price * item.quantity;
         }, 0);
 
         state.totalQuantity = state.products.length;
@@ -74,11 +77,11 @@ export const mutations = {
     },
 
    
-    SHOW_CART_DETAILS(state) {
-        state.showCartDetail = true;
+    SHOW_CART(state) {
+        state.showCart = true;
     },
-    HIDE_CART_DETAILS(state) {
-        state.showCartDetail = false;
+    HIDE_CART(state) {
+        state.showCart = false;
     }
 }
 
@@ -113,32 +116,4 @@ export const actions = {
         commit('CLEAR_CART_CONTENT');
         commit('HIDE_CART_DETAILS');
     }
-
-
-
-    // async destroy ({ dispatch }, productId) {
-    //     let response = await this.$axios.$delete(`cart/${productId}`)
-
-    //     dispatch('getCart')
-    // },
-
-    // async update ({ dispatch }, { productId, quantity }) {
-    //     let response = await this.$axios.$patch(`cart/${productId}`, {
-    //     quantity
-    //     })
-
-    //     dispatch('getCart')
-    // },
-
-    // async store ({ dispatch }, products) {
-    //     let response = await this.$axios.$post('cart', {
-    //     products
-    //     })
-
-    //     dispatch('getCart')
-    // },
-
-    // async setdelivery ({ commit }, delivery) {
-    //     commit('SET_delivery', delivery)
-    // }
 }

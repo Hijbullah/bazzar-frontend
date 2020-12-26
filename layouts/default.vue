@@ -8,8 +8,8 @@
                 <app-sidebar />
             </div>
             <div class="ml-64 flex-1">
-                <cart-content v-if="$store.getters['cart/showCartDetails']"></cart-content>
-                <cart-button v-else></cart-button>
+                
+                <cart-main />
                 
                 <main class="w-full">
                     <Nuxt />
