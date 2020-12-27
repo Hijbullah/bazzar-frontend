@@ -89,6 +89,7 @@
                     </div>
                     <div class="px-6 py-6">
                         <button 
+                            @click.prevent="goToCheckout"
                             :disabled="cartContent.products.length < 1"
                             class="w-full btn-primary justify-between pl-4 pr-2 py-1 rounded-full"
                         >
@@ -120,6 +121,9 @@ export default {
         } 
     },
     methods: {
+        goToCheckout(){
+            this.$router.push('/checkout');
+        },
         hideCartDetails() {
             this.$store.commit('cart/HIDE_CART');
         },

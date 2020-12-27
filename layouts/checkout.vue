@@ -1,12 +1,10 @@
 <template>
-    <div class=" bg-white antialiased min-h-screen">
+    <div class="min-h-screen bg-gray-50 antialiased">
         <div class="sticky top-0 z-40">
             <AppCheckoutHeader />
         </div>
-        <div class="flex">
-            <main class="w-full">
-                <Nuxt />
-            </main>
-        </div>    
+        <main class="w-full">
+            <Nuxt />
+        </main> 
     </div>
 </template>

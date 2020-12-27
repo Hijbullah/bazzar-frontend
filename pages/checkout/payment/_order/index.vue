@@ -1,21 +1,38 @@
 <template>
-    <div>
-        <div class="w-2/3 mx-auto">
-            <div class="w-full mt-8">
-                <div class="text-center">
-                    <h2 class="mb-4 text-xl font-bold uppercase tracking-wider">Confirmation</h2>
-                    <p>Your order is currently Confirmed as cash on delivery. You can also <span>pay now</span> by choosing only of the following payment options.</p>
+    <div class="w-2/3 mx-auto">
+        <div class="w-full py-10">
+            <div class="px-12 py-8 bg-white rounded shadow">
+                <h2 class="text-teal-600 text-lg font-bold uppercase tracking-wider">Order Received</h2>
+                <p class="my-6 text-gray-500">Thank You! Your order has been received.</p>
+
+                <div class="flex justify-between pt-2 pb-5">
+                    <div>
+                        <h4 class="text-gray-800 font-semibold tracking-wide">Order Number</h4>
+                        <p class="mt-2 text-gray-500 text-sm font-medium">{{ order.order_code }}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-800 font-semibold tracking-wide">Date</h4>
+                        <p class="mt-2 text-gray-500 text-sm font-medium">{{ order.created_at }}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-800 font-semibold tracking-wide">Total</h4>
+                        <p class="mt-2 flex items-center text-gray-500 text-sm font-medium">
+                            <svg class="w-4 h-4 mr-1 fill-current block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 4a1 1 0 000 2 1 1 0 011 1v1H7a1 1 0 000 2h1v3a3 3 0 106 0v-1a1 1 0 10-2 0v1a1 1 0 11-2 0v-3h3a1 1 0 100-2h-3V7a3 3 0 00-3-3z" clip-rule="evenodd" />
+                            </svg>
+                            {{ order.total }}
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-800 font-semibold tracking-wide">Payment Method</h4>
+                        <p class="mt-2 text-gray-500 text-sm font-medium">Cash On Delivery</p>
+                    </div>
                 </div>
+               
                 <div class="flex mt-6">
                     <div class="w-2/3 pr-8">
                         <h2 class="mb-8 text-xl font-bold uppercase tracking-wider">Payment Options</h2>
                         <div class="my-8 pl-8 space-y-3">
-                            <!-- <div class="flex items-center">
-                                <input id="cod" v-model="paymentMethod" value="cod" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                                <label for="cod" class="ml-3 block text-sm font-medium text-gray-700">
-                                    Cash On Delivery (COD)
-                                </label>
-                            </div> -->
                             <div class="flex items-center">
                                 <input id="bkash" v-model="paymentMethod" value="bkash" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                                 <label for="bkash" class="ml-3 block text-sm font-medium text-gray-700">
@@ -45,20 +62,7 @@
                     <div class="w-1/3">
                         <h2 class="mb-8 text-xl font-bold uppercase tracking-wider">Order Summery</h2>
                         <div class="border-4 p-5">
-                            <!-- <div class="flex justify-between items-center pb-2 border-b-2">
-                                <p class="text-sm font-semibold">Qty</p>
-                                <p class="text-sm font-semibold">Product</p>
-                                <p class="text-sm font-semibold">Price</p>
-                            </div>
-                            <div v-for="item in cartContent.products" :key="item.id" class="flex justify-between items-center py-2 border-b-2">
-                                <div>{{ item.quantity }}</div>
-                                <div class="text-xs w-40">
-                                    <span class="block">{{ item.name }}</span>
-                                    <span class="block mt-2">Price: {{ item.price }}</span>
-                                </div>
-                                <div class="text-xs">{{ item.price * item.quantity }}</div>
-                            </div>
-                            -->
+                        
                             <div class="mt-6">
                                 <div class="flex justify-between items-center pb-2 border-b-2">
                                     <div>Subtotal:</div>

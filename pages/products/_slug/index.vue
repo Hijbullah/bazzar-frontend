@@ -1,15 +1,38 @@
 <template>
     <div class="px-8 py-6">
-        <div class="flex">
+        <div class="flex items-center">
             <div class="w-1/3">
-                <div class="flex justify-center">
-                    <img class="w-full object-cover" :src="product.images[0]" :alt="product.name">
-                </div>
-                <div class="flex justify-center mt-8 space-x-3">
-                    <img class="w-16 h-16 object-cover" v-for="(image, index) in product.images" :key="index" :src="image" :alt="product.name">
-                </div>
+                <client-only>
+                    <Tinybox
+                        v-model="index"
+                        :images="product.images"
+                        no-thumbs
+                    />
+                </client-only>
+                <client-only placeholder="loading">
+                    <carousel 
+                        :perPage="1"
+                        :navigationEnabled="true"
+                        :navigation-next-label="nextLabel"
+                        :navigation-prev-label="prevLabel"
+                        :paginationEnabled="false"
+                    >
+                        <slide 
+                            class="group w-full h-80 cursor-pointer relative" 
+                            v-for="(image, index) in product.images" :key="index"
+                            @click.native.prevent="loadLightbox(index)" 
+                        >
+                            <div class="absolute right-6 bottom-5">
+                                <svg class="w-8 h-8 text-teal-600 opacity-25 group-hover:opacity-95" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                </svg>
+                            </div>
+                            <img class="w-full h-full object-cover" :src="image" :alt="product.name">
+                        </slide>
+                    </carousel>
+                </client-only>
             </div>
-            <div class="w-2/3 border-l pl-12 pr-8">
+            <div class="w-2/3 pl-16 pr-8">
                 <h2 class="text-3xl text-gray-800 font-semibold leading-none">{{ product.name }}</h2>
                 <div class="flex items-center mt-6 mb-8">
                     <p class="flex items-center font-semibold text-teal-600">
@@ -72,12 +95,31 @@ export default {
         const product = await $axios.$get(`/products/${params.slug}`);
         return { product: product.data };
     },
+    data() {
+        return {
+            nextLabel: `
+                <svg class="h-5 w-5 text-teal-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            `,
+            prevLabel: `
+                <svg class="h-5 w-5 text-teal-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+            `,
+            index: null
+        }
+    },
     computed: {
         productInCart() {
             return this.$store.getters['cart/getProductFromCart'](this.product.id);
         }
     },
     methods: {
+        loadLightbox(index) {
+            console.log(index);
+            this.index = index;
+        },
         addToCart() {
             this.$store.dispatch('cart/addProductToCart', {
                 id: this.product.id,
@@ -96,3 +138,9 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+    /deep/ .VueCarousel-navigation-button:focus {
+        outline: none;
+    }
+</style>

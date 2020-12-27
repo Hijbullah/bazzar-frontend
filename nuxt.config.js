@@ -19,7 +19,9 @@ export default {
 
   plugins: [
     { src: '~/plugins/nuxt-client-init.js', ssr: false },
-    { src: '~/plugins/paginate.js' }
+    { src: '~/plugins/paginate.js' },
+    { src: '~/plugins/vue-carousel.js', mode: 'client' },
+    { src: '~/plugins/vue-tinybox.js', mode: 'client' },
   ],
 
   components: true,

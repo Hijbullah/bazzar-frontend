@@ -1,74 +1,68 @@
 <template>
     <client-only>
         <div class="w-2/3 mx-auto">
-            <div class="w-full flex mt-8">
-                <div class="w-2/3 pr-8">
-                    <h2 class="mb-8 text-xl font-bold uppercase tracking-wider">Delivery Address</h2>
-                    <div class="flex flex-col space-y-3">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" v-model="address.name" id="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            <p v-if="errors && errors.name" class="mt-2 text-sm text-red-500">{{ errors.name }}</p>
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700">Mobile Number</label>
-                            <input type="text" v-model="address.phone" id="phone" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            <p v-if="errors && errors.phone" class="mt-2 text-sm text-red-500">{{ errors.phone }}</p>
-                        </div>
-                        <div>
-                            <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                            <input type="text" v-model="address.city" id="city" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            <p v-if="errors && errors.city" class="mt-2 text-sm text-red-500">{{ errors.city }}</p>
-                        </div>
-                        <div>
-                            <label for="address" class="block text-sm font-medium text-gray-700">
-                                Address
-                            </label>
-                            <div class="mt-1">
-                                <textarea id="address" v-model="address.address" rows="4" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+            <div class="w-full flex py-16">
+                <div class="w-2/3">
+                    <div class="bg-white px-5 py-6 rounded shadow">
+                        <h2 class="mb-8 text-center text-xl text-teal-600 font-semibold uppercase tracking-wider">Delivery Address</h2>
+                        <div class="flex flex-col">
+                            <div class="mb-5">
+                                <input type="text" v-model="address.name" id="name" class="input-primary" placeholder="Name">
+                                <p v-if="errors && errors.name" class="mt-2 text-sm text-red-500">{{ errors.name }}</p>
                             </div>
-                            <p class="mt-2 text-sm text-gray-500">
-                                e.g House No 73, Road 14, Block F, Bashundhara R/A, Dhaka - 1216
-                            </p>
-                            <p v-if="errors && errors.address" class="mt-2 text-sm text-red-500">{{ errors.address }}</p>
-                        </div>
-                        <div class="px-4 py-3 bg-gray-50 text-center">
-                            <button @click.prevent="placeOrder" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+
+                            <div class="mb-5">
+                                <input type="text" v-model="address.phone" id="phone" class="input-primary" placeholder="Phone Number">
+                                <p v-if="errors && errors.phone" class="mt-2 text-sm text-red-500">{{ errors.phone }}</p>
+                            </div>
+
+                            <div class="mb-5">
+                                <input type="text" v-model="address.city" id="city" class="input-primary" placeholder="City">
+                                <p v-if="errors && errors.city" class="mt-2 text-sm text-red-500">{{ errors.city }}</p>
+                            </div>
+                            <div class="mb-5">
+                                <textarea id="address" v-model="address.address" rows="4" class="input-primary" placeholder="Address"></textarea>
+                                
+                                <p class="mt-2 text-sm text-gray-400">
+                                    e.g House No 73, Road 14, Block F, Bashundhara R/A, Dhaka - 1216
+                                </p>
+                                <p v-if="errors && errors.address" class="mt-2 text-sm text-red-500">{{ errors.address }}</p>
+                            </div>
+                        
+                            <button @click.prevent="placeOrder" class="btn-primary justify-center px-4 py-2">
                                 Confirm Address and Place Order
                             </button>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="w-1/3">
-                    <h2 class="mb-8 text-xl font-bold uppercase tracking-wider">Order Summery</h2>
-                    <div class="border-4 p-5">
-                        <div class="flex justify-between items-center pb-2 border-b-2">
-                            <p class="text-sm font-semibold">Qty</p>
-                            <p class="text-sm font-semibold">Product</p>
-                            <p class="text-sm font-semibold">Price</p>
-                        </div>
-                        <div v-for="item in cartContent.products" :key="item.id" class="flex justify-between items-center py-2 border-b-2">
-                            <div>{{ item.quantity }}</div>
-                            <div class="text-xs w-40">
-                                <span class="block">{{ item.name }}</span>
-                                <span class="block mt-2">Price: {{ item.price }}</span>
+                <div class="w-1/3 ml-8">
+                    <h2 class="text-center text-teal-600 font-semibold uppercase tracking-wider">Your Order</h2>
+                    <div class="mt-8">
+                        <div class="max-h-96 px-3 pb-2 overflow-y-auto border-b">
+                            <div v-for="item in cartContent.products" :key="item.id" class="flex justify-between items-center mb-4">
+                                <div class="text-gray-500">{{ item.quantity }}</div>
+                                <div class="w-1/2">
+                                    <p class="text-gray-500 truncate">{{ item.name }}</p>
+                                    <p class="mt-1 text-xs text-gray-500">Price: {{ item.price }}</p>
+                                </div>
+                                <div class="text-gray-500 font-medium">{{ item.price * item.quantity }}</div>
                             </div>
-                            <div class="text-xs">{{ item.price * item.quantity }}</div>
                         </div>
                         <div class="mt-6">
-                            <div class="flex justify-between items-center pb-2 border-b-2">
-                                <div>Subtotal:</div>
-                                <div>{{ cartContent.subTotal }}</div>
-                            </div>
-                        
-                            <div class="flex justify-between items-center py-2 border-b-2">
-                                <div>Delivery:</div>
-                                <div>{{ cartContent.delivery }}</div>
+                            <div class="flex justify-between items-center">
+                                <p class="text-gray-500">Subtotal:</p>
+                                <p class="text-gray-500">{{ cartContent.subTotal }}</p>
                             </div>
                         
                             <div class="flex justify-between items-center">
-                                <div>Total:</div>
-                                <div>{{ cartContent.total }}</div>
+                                <p class="text-gray-500">Delivery:</p>
+                                <p class="text-gray-500">{{ cartContent.delivery }}</p>
+                            </div>
+                        
+                            <div class="flex justify-between items-center mt-5">
+                                <p class="text-gray-800 font-semibold">Total:</p>
+                                <p class="text-gray-800 font-semibold">{{ cartContent.total }}</p>
                             </div>
                         </div>
                     </div>
