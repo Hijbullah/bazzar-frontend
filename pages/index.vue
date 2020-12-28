@@ -18,9 +18,23 @@
         </section>
         
         <section>
-            
+            modal Test 
+            <br>
+            <button @click.prevent="openModal">Open Model</button>
+
+            <ModalAddress />
         </section>
        
         
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        openModal() {
+            this.$modal.show('modal-address');
+        }
+    }
+}
+</script>

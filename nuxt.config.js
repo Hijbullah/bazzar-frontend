@@ -22,6 +22,7 @@ export default {
     { src: '~/plugins/paginate.js' },
     { src: '~/plugins/vue-carousel.js', mode: 'client' },
     { src: '~/plugins/vue-tinybox.js', mode: 'client' },
+    { src: '~/plugins/vue-js-modal.js'},
   ],
 
   components: true,
