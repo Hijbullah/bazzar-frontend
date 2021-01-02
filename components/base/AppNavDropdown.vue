@@ -1,5 +1,4 @@
 <template>
-    <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="relative inline-block text-left">
         <div>
             <button v-if="loggedIn" @click.prevent="open = !open" type="button" class="btn-primary px-3 py-2 text-sm uppercase tracking-widest" id="options-menu" aria-haspopup="true" aria-expanded="true">
@@ -9,7 +8,6 @@
                 </svg>
             </button>
             <button v-else @click.prevent="goToLogin" class="btn-primary px-3 py-2 text-sm uppercase tracking-widest">Login</button>
-
         </div>
 
        <transition
@@ -23,8 +21,8 @@
         >
             <div v-if="open" class="origin-top-right absolute right-0 mt-3 w-48 rounded-md shadow-lg bg-white ring-2 ring-black ring-opacity-5">
                 <div class="px-4 py-5" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    <a href="#" class="block px-4 py-2  text-gray-700 hover:text-teal-600 font-semibold" role="menuitem">My Profile</a>
-                    <a href="#" class="block px-4 py-2 text-gray-700 hover:text-teal-600 font-semibold" role="menuitem">My Orders</a>               
+                    <NuxtLink :to="{ name: 'customer-profile' }" class="block px-4 py-2  text-gray-700 hover:text-teal-600 font-semibold" role="menuitem">My Profile</NuxtLink>
+                    <NuxtLink :to="{ name: 'customer-order' }" class="block px-4 py-2  text-gray-700 hover:text-teal-600 font-semibold" role="menuitem">My Order</NuxtLink>
                     <button @click.prevent="logout" type="submit" class="block w-full text-left px-4 py-2 font-semibold text-gray-700 hover:text-teal-600 focus:outline-none" role="menuitem">
                         Logout
                     </button>
@@ -61,6 +59,11 @@ export default {
             if (! this.$el.contains(e.target)) {
                 this.open = false
             }
+        }
+    },
+    watch: {
+        $route(){
+            this.open = false;
         }
     },
     created() {
