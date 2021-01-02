@@ -1,4 +1,12 @@
 export default {
+//   publicRuntimeConfig: {
+//     apiUrl: process.env.API_URL
+//   },
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: `${process.env.BASE_URL}${process.env.API_PATH}`
+    }
+  },
   head: {
     title: 'Bazzar',
     meta: [
@@ -18,13 +26,17 @@ export default {
   css: [],
 
   plugins: [
-    { src: '~/plugins/nuxt-client-init.js', ssr: false },
-    { src: '~/plugins/paginate.js' },
+    { src: '~/plugins/nuxt-client-init.js', mode: 'client' },
+    { src: '~/plugins/vue-placeholders.js'},
+    { src: '~/plugins/vue-observe-visibility.js', mode: 'client'},
+    // { src: '~/plugins/paginate.js' },
     { src: '~/plugins/vue-carousel.js', mode: 'client' },
     { src: '~/plugins/vue-tinybox.js', mode: 'client' },
     { src: '~/plugins/vue-js-modal.js'},
   ],
 
+  loading: false,
+  
   components: true,
 
   buildModules: [
@@ -41,7 +53,7 @@ export default {
     strategies: {
       'laravelJWT': {
         provider: 'laravel/jwt',
-        url: 'http://127.0.0.1:8000',
+        url: process.env.BASE_URL,
         // endpoints: {
           
         // },
@@ -71,7 +83,7 @@ export default {
 //   },
 
   axios: {
-    baseURL: 'http://127.0.0.1:8000/api'
+    baseURL: `${process.env.BASE_URL}${process.env.API_PATH}`
   },
 
   build: {},

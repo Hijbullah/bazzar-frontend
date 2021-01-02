@@ -122,6 +122,7 @@ export default {
     },
     methods: {
         goToCheckout(){
+            this.hideCartDetails();
             this.$router.push('/checkout');
         },
         hideCartDetails() {

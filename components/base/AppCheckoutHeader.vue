@@ -14,30 +14,8 @@
                     </span>
                     Need Help
                 </a>
-                <button v-if="login" @click.prevent="logout" class="hidden md:block w-32 lg:w-48 self-stretch bg-red-600 hover:bg-red-700 text-white font-bold focus:outline-none">Logout</button>
-                <button v-else @click.prevent="goToLogin" class="btn-primary px-3 py-2 text-sm uppercase tracking-widest">Login</button>
+                <AppNavDropdown />
            </div>
        </div>
     </header>
 </template>
-
-<script>
-export default {
-    computed: {
-        login() {
-            return this.$auth.loggedIn;
-        },
-        user() {
-            return this.$auth.user;
-        }
-    },
-    methods: {
-        async logout() {
-            await this.$auth.logout();
-        },
-        goToLogin() {
-            this.$router.push('/auth/login');
-        }
-    }
-}
-</script>

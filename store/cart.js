@@ -1,5 +1,5 @@
 export const state = () => ({
-    products: [],
+    products: [], //each product property: id,slug,name,salePrice,orginalPrice,discount,image,quantity
     delivery: 0,
     totalQuantity: 0,
     subTotal: 0,
@@ -91,11 +91,10 @@ export const actions = {
         commit('cart/SET_CART_CONTENT');
     },
 
-    async addProductToCart({ commit }, product) {
+    addProductToCart({ commit }, product) {
         commit('ADD_PRODUCT_TO_CART', product);
         commit('SET_CART_CONTENT');
         commit('ADD_CART_TO_LOCAL_STORAGE');
-        // commit('SHOW_CART_DETAILS');
     },
     increaseItemQty({ commit } ,id) {
         commit('INCREASE_ITEM_QTY', id);
