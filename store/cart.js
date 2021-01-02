@@ -113,6 +113,6 @@ export const actions = {
     },
     clearCartContent({ commit }) {
         commit('CLEAR_CART_CONTENT');
-        commit('HIDE_CART_DETAILS');
+        commit('HIDE_CART');
     }
 }
