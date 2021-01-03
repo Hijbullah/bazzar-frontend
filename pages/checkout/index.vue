@@ -208,7 +208,7 @@ export default {
 
         async placeOrder() {
             try {
-                const response = await this.$axios.post('/place-order/', {
+                const response = await this.$axios.post('/place-order', {
                     user: this.$auth.user.id,
                     address: this.selectedAddress,
                     order: this.cartContent,
@@ -217,8 +217,8 @@ export default {
 
                 this.$store.dispatch('cart/clearCartContent');
                 this.$router.push({ name: 'payment-order', params: { order: response.data.order_code }});
-            } catch (error) {
-                console.log(error);
+            } catch ({ response }) {
+                console.log(response);
             }
         },
     },
