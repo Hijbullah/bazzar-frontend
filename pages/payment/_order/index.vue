@@ -47,7 +47,7 @@
                     </div>
                     <div class="mt-6">
                         <NuxtLink class="btn-secondary px-4 py-1 rounded-sm" :to="{ name: 'index' }">Back To Home</NuxtLink>
-                        <NuxtLink class="btn-secondary ml-3 px-4 py-1 rounded-sm" :to="{ name: 'index' }">Go To Dashboard</NuxtLink>
+                        <NuxtLink class="btn-secondary ml-3 px-4 py-1 rounded-sm" :to="{ name: 'customer-order' }">Go To Orders</NuxtLink>
                     </div>
                 </div>    
             </template>
