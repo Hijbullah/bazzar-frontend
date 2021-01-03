@@ -44,7 +44,7 @@ export default {
                 slug: this.product.slug,
                 name: this.product.name,
                 price: this.product.price.salePrice,
-                image: this.product.image,
+                image: this.product.images[0],
                 quantity: 1 // buyable qty
             });
         },
