@@ -67,15 +67,15 @@ export default {
         }
     },
     watch: {
-        // isSidebarOpen: {
-        //     immediate: true,
-        //     handler(isSidebarOpen) {
-        //         if (process.client) {
-        //             if (isSidebarOpen) document.body.style.setProperty("overflow", "hidden");
-        //             else document.body.style.removeProperty("overflow");
-        //         }
-        //     }
-        // }
+        isSidebarOpen: {
+            immediate: true,
+            handler(open) {
+                if (process.client) {
+                    if (open) document.body.style.setProperty("overflow", "hidden");
+                    else document.body.style.removeProperty("overflow");
+                }
+            }
+        },
         $route(){
             this.isSidebarOpen = false;
         }

@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="flex justify-between items-center px-4 sm:px-4 py-3 bg-teal-500 shadow-lg">
-            <app-side-bar-mobile />
+            <lazy-app-side-bar-mobile />
             <div class="relative flex-1 mx-4 sm:mx-4">
                 <input type="text" class="appearance-none w-full h-10 pr-10 text-sm text-gray-500 border-0 focus:outline-none focus:ring-0" placeholder="Search anything...">
                 <span class="inline-block absolute top-3 right-2 ml-1 focus:outline-none">
