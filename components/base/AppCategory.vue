@@ -13,14 +13,14 @@
             </div>
         </div>
 
-        <div v-if="category.children">
-            <div v-if="showChildren && selectedCategories.includes(category.id)" class="pl-6 pt-4 space-y-4 border-l-2 border-gray-200">
-                <category-item 
+        <div v-show="category.children">
+            <div v-show="showChildren && selectedCategories.includes(category.id)" class="pl-6 pt-4 space-y-4 border-l-2 border-gray-200">
+                <LazyAppCategory 
                     v-for="category in category.children" 
                     :key="category.id" 
                     :category="category"
                     :depth="depth + 1"
-                ></category-item>
+                ></LazyAppCategory>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-    name: 'category-item',
+    name: 'AppCategory',
     props: {
         category: Object,
         depth: Number,

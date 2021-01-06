@@ -1,30 +1,33 @@
 export const state = () => ({
     categories: [],
-    childCategories: []
+    selectedCategories: []
 })
 
 export const getters = {
-    loadRootCategories(state) {
-        return state.categories.filter(item => !item.parent_id);
-    },
-    loadChildCategories(state) {
-        return state.childCategories;
-    }
+    isSidebarOpen: state => state.isSidebarOpen,
+    getCategories: state => state.categories,
+    getSelectedCategories: state => state.selectedCategories,
 }
 
 export const mutations = {
+    OPEN_SIDEBAR(state) {
+        state.isSidebarOpen = true;
+    },
+    HIDE_SIDEBAR(state) {
+        state.isSidebarOpen = false;
+    },
     SET_CATEGORIES(state, categories) {
         state.categories = categories;
     },
-    SET_CHILD_CATEGORIES(state, id) {
-        state.childCategories = state.categories.filter(item => item.parent_id == id);
+    SET_SELECTED_CATEGORIES(state, category) {
+       state.selectedCategories = category.categoryParentsPath;
     }
 }
 
 export const actions = {
     async nuxtServerInit({ commit }) {
-        const categories = await this.$axios.$get('/categories');
-        commit('SET_CATEGORIES', categories);
+        const { data } = await this.$axios.$get('/get-categories');
+        commit('SET_CATEGORIES', data);
     },
     nuxtClientInit({ commit }) {
         commit('cart/INIT_CART');

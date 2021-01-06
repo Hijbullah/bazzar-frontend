@@ -1,10 +1,11 @@
 <template>
-    <div class="pl-16 pr-8">
-        <h2 class="text-3xl text-gray-800 font-semibold leading-none">{{ product.name }}</h2>
-        <div class="flex items-center mt-6 mb-8">
-            <p class="flex items-center font-semibold text-teal-600">
+    <div class="sm:pl-16 sm:pr-8">
+        <h2 class="mt-8 text-2xl sm:text-3xl text-gray-900 font-medium leading-tight">{{ product.name }}</h2>
+
+        <div class="flex items-center mt-8 mb-6">
+            <p class="flex items-center text-lg font-semibold text-teal-600">
                 <span class="mr-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 11V9a2 2 0 00-2-2m2 4v4a2 2 0 104 0v-1m-4-3H9m2 0h4m6 1a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </span>
@@ -20,11 +21,11 @@
             </p>
         </div>
 
-        <div class="text-gray-800">
+        <div class="text-sm text-gray-700 leading-relaxed">
             {{ product.short_description }}
         </div>
 
-        <div class="mt-12">
+        <div class="mt-8">
             <CartAddButtonForProduct :product="product" />
         </div>
     </div>

@@ -9,13 +9,13 @@
                  
             <carousel 
                 :perPage="1"
-                :navigationEnabled="true"
+                :navigationEnabled="false"
                 :navigation-next-label="nextLabel"
                 :navigation-prev-label="prevLabel"
                 :paginationEnabled="false"
             >
                 <slide 
-                    class="group w-full h-80 cursor-pointer relative" 
+                    class="group w-full h-72 sm:h-80 cursor-pointer relative" 
                     v-for="(image, index) in images" :key="index"
                     @click.native.prevent="loadLightbox(index)" 
                 >

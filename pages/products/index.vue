@@ -1,6 +1,6 @@
 <template>
 <div class="px-4 py-8">
-    <div class=" grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-12">
+    <div class="grid grid-cols-2 lg:grid-cols-6 gap-x-6 gap-y-12">
         <div v-for="product in products" :key="product.id">
             <TheProduct :product="product" />
         </div>
