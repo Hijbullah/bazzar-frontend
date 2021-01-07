@@ -1,6 +1,6 @@
 <template>
-    <div class="sm:pl-16 sm:pr-8">
-        <h2 class="mt-8 text-2xl sm:text-3xl text-gray-900 font-medium leading-tight">{{ product.name }}</h2>
+    <div class="md:px-8">
+        <h2 class="mt-8 md:mt-0 text-2xl md:text-xl text-gray-900 font-medium leading-tight">{{ product.name }}</h2>
 
         <div class="flex items-center mt-8 mb-6">
             <p class="flex items-center text-lg font-semibold text-teal-600">
@@ -21,7 +21,7 @@
             </p>
         </div>
 
-        <div class="text-sm text-gray-700 leading-relaxed">
+        <div class="md:pr-12 text-sm text-gray-700 leading-relaxed">
             {{ product.short_description }}
         </div>
 

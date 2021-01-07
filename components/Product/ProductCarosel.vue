@@ -15,7 +15,7 @@
                 :paginationEnabled="false"
             >
                 <slide 
-                    class="group w-full h-72 sm:h-80 cursor-pointer relative" 
+                    class="group w-full h-72 sm:h-80 md:h-64 lg:h-80 cursor-pointer relative" 
                     v-for="(image, index) in images" :key="index"
                     @click.native.prevent="loadLightbox(index)" 
                 >

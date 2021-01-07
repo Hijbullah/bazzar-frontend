@@ -5,19 +5,23 @@
             <app-mobile-header class="md:hidden" />
         </div>
         <div class="flex">
-            <div class="hidden md:block w-64 h-screen py-3 fixed left-0 border-r-2 border-gray-100 overflow-y-auto">
+            <div class="hidden md:block w-52 lg:w-64 h-screen py-3 fixed left-0 border-r-2 border-gray-100 overflow-y-auto">
                 <app-sidebar />
             </div>
-            <div class="md:ml-64 flex-1">
+            <div class="md:ml-52 lg:ml-64 flex-1">
                 
-                <cart-main class="hidden md:block" />
+                <cart-main />
                 
                 <main class="w-full">
                     <Nuxt />
                 </main>
-
-                <!-- <AppFooter /> -->
             </div>
         </div>  
+        <div class="md:hidden pb-12"></div>
+
+       
+        <lazy-app-mobile-footer class="md:hidden"/>
+      
+       
     </div>
 </template>

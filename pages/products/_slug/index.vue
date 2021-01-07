@@ -1,10 +1,10 @@
 <template>
-    <div class="px-4 sm:px-8 py-4 sm:py-6">
-        <div class="sm:flex items-center">
-            <div class="w-full sm:w-1/3">
+    <div class="px-4 sm:px-8 md:px-6 lg:px-8 py-4 sm:py-6">
+        <div class="md:flex md:items-center">
+            <div class="w-full md:w-1/3">
                <ProductCarosel :productName="product.name" :images="product.images" />
             </div>
-            <div class="w-full sm:w-2/3">
+            <div class="w-full md:w-2/3">
                 <ProductDescription :product="product" />
             </div>
         </div>

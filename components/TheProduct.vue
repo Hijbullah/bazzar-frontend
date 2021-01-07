@@ -1,7 +1,9 @@
 <template>
     <div class="bg-white shadow-sm md:shadow rounded-sm md:rounded-md overflow-hidden">
-        <div class="w-full h-48 md:h-48">
-            <img class="h-full w-full object-cover" :src="product.image" :alt="product.name">
+        <div class="w-full h-48 sm:h-52">
+            <NuxtLink class="w-full h-full" :to="{ name: 'products-slug', params: { slug: product.slug } }">
+                <img class="h-full w-full object-cover" :src="product.image" :alt="product.name">
+            </NuxtLink>
         </div>
 
         <div class="px-2 sm:px-4 pb-4">

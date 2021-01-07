@@ -33,6 +33,7 @@ export default {
     { src: '~/plugins/vue-carousel.js', mode: 'client' },
     { src: '~/plugins/vue-tinybox.js', mode: 'client' },
     { src: '~/plugins/vue-js-modal.js'},
+    { src: '~/plugins/vue-mq.js'},
   ],
 
   loading: false,

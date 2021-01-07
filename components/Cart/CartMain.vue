@@ -1,6 +1,6 @@
 <template>
     <div>
-        <cart-content></cart-content>
-        <cart-button ></cart-button>
+        <cart-content />
+        <cart-button class="hidden md:block" />
     </div>
 </template>

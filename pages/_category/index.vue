@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full px-4 sm:px-4 md:px-8 py-5 sm:py-8 bg-gray-50">
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 sm:gap-x-3 md:gap-x-5 gap-y-5">
+    <div class="w-full px-4 sm:px-8 md:px-8 py-5 sm:py-8 bg-gray-50">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 md:gap-x-5 gap-y-5">
             <template v-if="$fetchState.pending && !products.length">
                 <content-placeholders
                     v-for="p in 20"
