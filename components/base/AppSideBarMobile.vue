@@ -7,7 +7,7 @@
         </button>
 
         <transition
-            name="cart-slideover"
+            name="category-mobile-slideover"
             enter-active-class="transform transition ease-in-out duration-500 sm:duration-700"
             enter-class="-translate-x-full"
             enter-to-class="translate-x-0"

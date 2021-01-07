@@ -5,7 +5,7 @@
             <app-mobile-header class="md:hidden" />
         </div>
         <div class="flex">
-            <div class="hidden md:block w-52 lg:w-64 h-screen py-3 fixed left-0 border-r-2 border-gray-100 overflow-y-auto">
+            <div style="height: calc(100% - 70px)" class="hidden md:block w-52 lg:w-64 fixed left-0 bottom-0 py-5 pr-3 border-r-2 border-gray-100 overflow-y-auto">
                 <app-sidebar />
             </div>
             <div class="md:ml-52 lg:ml-64 flex-1">
