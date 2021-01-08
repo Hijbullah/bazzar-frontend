@@ -1,13 +1,14 @@
 <template>
     <div class="min-h-screen bg-gray-50 antialiased">
         <div class="sticky top-0 z-40">
-            <AppHeaderWithoutSearch />
+            <app-header class="hidden md:block" />
+            <app-mobile-header class="md:hidden" />
         </div>
-        <main class="w-full flex px-12 py-8">
-            <div class="w-56 mt-12">
+        <main class="w-full md:flex px-6 lg:px-12 py-8">
+            <div class="hidden md:block w-56 mt-12">
                <customer-sidebar />
             </div>
-            <div class="flex-1">
+            <div class="md:flex-1">
                 <Nuxt />
             </div>
         </main> 
