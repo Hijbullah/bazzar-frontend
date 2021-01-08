@@ -7,14 +7,14 @@
                     <p class="text-sm md:text-xl text-gray-700">Everything you need! We are Here!</p>
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 mt-4">
+            <!-- <div class="flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4 mt-4">
                 <div>
                     <img class="object-cover" src="https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1436/Default/stores/chaldal/components/landingPage2/LandingPage/images/pet_banner2.png?q=best&webp=1" alt="">
                 </div>
                 <div>
                     <img class="object-cover" src="https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1436/Default/stores/chaldal/components/landingPage2/LandingPage/images/diaper_banner2.png?q=best&webp=1" alt="">
                 </div>
-            </div>
+            </div> -->
         </section>
     </div>
 </template>

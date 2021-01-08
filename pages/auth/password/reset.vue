@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white rounded-lg shadow px-8 py-6">
+    <div>
         <div class="flex flex-col justify-center items-center mb-6">
             <h2 class="text-gray-700 text-lg font-bold uppercase tracking-widest">Reset Password</h2>
         </div>

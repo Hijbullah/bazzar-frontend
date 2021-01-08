@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white rounded-lg shadow px-8 py-6">
+    <div>
         <div v-if="message">
             <p>{{ message }}</p>
         </div>
