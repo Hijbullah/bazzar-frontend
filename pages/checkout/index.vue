@@ -1,8 +1,8 @@
 <template>
     <client-only>
-        <div class="w-2/3 mx-auto">
-            <div class="w-full flex py-8">
-                <div class="w-2/3">
+        <div class="md:w-3/4 lg:w-2/3 mx-auto">
+            <div class="w-full flex flex-col md:flex-row py-8">
+                <div class="md:w-2/3 sm:px-12 md:px-0">
                     <template v-if="$fetchState.pending">
                         <div class="bg-white px-5 py-6 rounded shadow">
                             <content-placeholders>
@@ -18,10 +18,21 @@
                         </div>
                     </template>
                     <template v-else>
-                        <div class="px-5 py-6 bg-white rounded shadow">
+                        <div class="px-5 py-6 bg-white sm:rounded shadow-sm sm:shadow">
                             <div class="flex justify-between items-center py-2">
-                                <h2 class="text-lg text-teal-600 font-semibold uppercase tracking-wider">Delivery Address</h2>
-                                <button @click.prevent="openAddressModal" class="text-sm font-semibold text-gray-800 hover:text-teal-600 focus:outline-none">Add New Address</button>
+                                <h2 class="md:text-lg text-teal-600 font-semibold uppercase tracking-wider">Delivery Address</h2>
+                                <button 
+                                    @click.prevent="openAddressModal" 
+                                    class="hidden md:block text-sm font-semibold text-gray-800 hover:text-teal-600 focus:outline-none"
+                                >Add New Address</button>
+                                <button 
+                                    @click.prevent="openAddressModal" 
+                                    class="md:hidden inline-flex items-center text-sm text-teal-600 focus:outline-none"
+                                >
+                                    <svg class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
                             </div>
                             <div class="flex flex-col mt-3">
                                 <div 
@@ -62,10 +73,10 @@
                             />
                         </div>
 
-                        <div class="mt-8 px-5 py-6 bg-white rounded shadow">
+                        <div class="mt-8 px-5 py-6 bg-white sm:rounded shadow-sm sm:shadow">
                             <div class="py-2">
-                                <h2 class="text-lg text-teal-600 font-semibold uppercase tracking-wider">Payment Option</h2>
-                                <p class="text-sm text-gray-500">Select a Payment Option. Payment process will begain in the next page.</p>
+                                <h2 class="md:text-lg text-teal-600 font-semibold uppercase tracking-wider">Payment Option</h2>
+                                <p class="mt-1 text-xs font-medium text-gray-500">Select a Payment Option. Payment process will begain in the next page.</p>
                             </div>
                             <div class="flex flex-col mt-3 space-y-2">
                                 <div 
@@ -88,13 +99,13 @@
                             </div>
                         </div>
                         <div class="mt-8 text-center">
-                            <button @click.prevent="placeOrder" class="btn-primary px-5 py-2 uppercase tracking-wider">
+                            <button @click.prevent="placeOrder" class="btn-primary text-sm md:text-base px-5 py-2 uppercase tracking-wider">
                                 Confirm and Place Order
                             </button>
                         </div>
                     </template>
                 </div>
-                <div class="w-1/3 ml-8">
+                <div class="order-first md:order-last md:w-1/3 mb-8 md:mt-0 px-5 sm:px-12 md:px-0 md:ml-8">
                     <template v-if="$fetchState.pending">
                         <div>
                             <content-placeholders>

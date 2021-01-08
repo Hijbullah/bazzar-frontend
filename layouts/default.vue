@@ -17,11 +17,8 @@
                 </main>
             </div>
         </div>  
+        
         <div class="md:hidden pb-12"></div>
-
-       
         <lazy-app-mobile-footer class="md:hidden"/>
-      
-       
     </div>
 </template>
