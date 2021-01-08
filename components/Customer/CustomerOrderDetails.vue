@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex flex-col sm:flex-row sm:items-center border border-t-0 border-gray-300">
-            <div class="w-full sm:w-1/2 px-4 py-3 text-sm border-b sm:border-r border-gray-300">
+            <div class="w-full sm:w-1/2 px-4 py-3 text-sm border-b sm:border-b-0 sm:border-r border-gray-300">
                 <h4 class="font-semibold mb-3">Delivery Address</h4>
                 <p class="text-gray-500">{{ order.deliveryAddress.name }}</p>
                 <p class="text-gray-500">{{ order.deliveryAddress.phone }}</p>
