@@ -1,6 +1,19 @@
 <template>
     <div class="md:px-8">
-        <h2 class="mt-8 md:mt-0 text-2xl md:text-xl text-gray-900 font-medium leading-tight">{{ product.name }}</h2>
+        <h2 class="mt-8 md:mt-0 text-2xl text-gray-900 font-medium leading-tight">{{ product.name }}</h2>
+        <div class="mt-1">
+            <client-only>
+                <star-rating 
+                    active-color="#14B8A6"
+                    :text-class="'text-teal-600 font-semibold'"
+                    :rating="product.averageRating" 
+                    :read-only="true" 
+                    :star-size="20"
+                    :show-rating="true"
+                    :increment="0.1"
+                ></star-rating>
+            </client-only>
+        </div>
 
         <div class="flex items-center mt-8 mb-6">
             <p class="flex items-center text-lg font-semibold text-teal-600">
@@ -35,6 +48,7 @@
 export default {
     props: {
         product: Object
-    }
+    },
+   
 }
 </script>

@@ -17,7 +17,8 @@
     "nuxt": "^2.14.6",
     "vue-content-placeholders": "^0.2.1",
     "vue-mq": "^1.0.1",
-    "vue-observe-visibility": "^1.0.0"
+    "vue-observe-visibility": "^1.0.0",
+    "vue-star-rating": "^1.7.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

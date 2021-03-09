@@ -7,10 +7,23 @@
         </div>
 
         <div class="px-2 sm:px-4 pb-4">
-            <h3 class="mt-8 mb-4 text-gray-800 hover:text-teal-600 font-bold leading-none tracking-wide truncate">
+            <h3 class="mt-8 text-gray-800 hover:text-teal-600 font-bold leading-none tracking-wide truncate">
                 <nuxt-link :to="'/products/' + product.slug">{{ product.name }}</nuxt-link>
             </h3>
-            <div class="flex justify-between items-center">
+            <div v-if="product.ratings">
+                <client-only>
+                    <star-rating 
+                        active-color="#14B8A6"
+                        :text-class="'text-teal-600 font-semibold'"
+                        :rating="product.ratings" 
+                        :read-only="true" 
+                        :star-size="14"
+                        :show-rating="false"
+                        :increment="0.1"
+                    ></star-rating>
+                </client-only>
+            </div>
+            <div class="flex justify-between items-center mt-5">
                 <p class="flex items-center text-teal-600 text-sm font-semibold">
                     <span class="mr-1">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke="currentColor">
